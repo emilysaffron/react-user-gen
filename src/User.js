@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./User.css";
 class User extends React.Component {
   state = {
     loading: true,
@@ -19,7 +19,18 @@ class User extends React.Component {
         {this.state.loading || !this.state.person ? (
           <div>loading...</div>
         ) : (
-          <div>{this.state.person.name.first}</div>
+          <div>
+            <img src={this.state.person.picture.large} alt="profile" />
+            <div className="name">
+              {this.state.person.name.first + " " + this.state.person.name.last}
+            </div>
+            <div className="location">
+              {" "}
+              {this.state.person.location.city +
+                " , " +
+                this.state.person.location.country}
+            </div>
+          </div>
         )}
       </div>
     );
